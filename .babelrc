@@ -1,0 +1,12 @@
+// -*- mode: js -*-
+
+{
+  "presets": [
+    "env",
+    "flow",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}

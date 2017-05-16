@@ -1,0 +1,9 @@
+[options]
+suppress_comment= \\(.\\|\n\\)*\\flow-disable-next-line
+
+module.name_mapper='^.*\.scss$' -> 'css-module-flow'
+
+unsafe.enable_getters_and_setters=true
+
+[ignore]
+.*node_modules/eslint-plugin-jsx-a11y/.*
