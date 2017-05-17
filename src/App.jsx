@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import Duration from './Duration';
 
 export default class App extends Component {
   timerID: number;
@@ -29,7 +30,9 @@ export default class App extends Component {
     const untilDate = this.props.date - this.state.now;
 
     return (
-      <div>{untilDate}</div>
+      <div>
+        <Duration untilDate={untilDate} />
+      </div>
     );
   }
 }
