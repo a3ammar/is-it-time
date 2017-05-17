@@ -1,0 +1,27 @@
+body {
+  direction: rtl;
+}
+
+.loading {
+  font-size: 100px;
+  max-width: 100px;
+  margin: auto;
+
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: rotating;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(-1deg);
+  }
+}
