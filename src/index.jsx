@@ -33,7 +33,7 @@ fetch('https://api.aladhan.com/hToG?date=01-09-1438')
   ))
   .then((json) => {
     ReactDOM.render(
-      <h1>{parseDate(json).toLocaleString()}</h1>,
+      <App date={parseDate(json)} />,
       document.getElementById('app'),
     );
   });
