@@ -1,13 +1,14 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, { Component, Element } from 'react';
 import Duration from './Duration';
 
 export default class App extends Component {
   timerID: number;
 
   props: {
-    date: Date,
+    children: Element<any>,
+    date: ?Date,
   }
 
   state = {
@@ -31,6 +32,7 @@ export default class App extends Component {
 
     return (
       <div>
+        {this.props.children}
         <Duration untilDate={untilDate} />
       </div>
     );
