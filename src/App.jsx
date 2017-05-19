@@ -3,6 +3,18 @@
 import React, { Component, Element } from 'react';
 import Duration from './Duration';
 
+function Answer({ untilDate }: { untilDate: number }) {
+  let answer;
+
+  if (untilDate > 0) {
+    answer = 'لا';
+  } else {
+    answer = 'نعم';
+  }
+
+  return <h1 className={styles.answer}>{answer}</h1>;
+}
+
 export default class App extends Component {
   timerID: number;
 
@@ -33,6 +45,7 @@ export default class App extends Component {
     return (
       <div>
         {this.props.children}
+        <Answer untilDate={untilDate} />
         <Duration untilDate={untilDate} />
       </div>
     );
