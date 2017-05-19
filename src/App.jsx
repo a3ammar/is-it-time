@@ -2,6 +2,7 @@
 
 import React, { Component, Element } from 'react';
 import Duration from './Duration';
+import styles from './styles.scss';
 
 function Answer({ untilDate }: { untilDate: number }) {
   let answer;
@@ -43,7 +44,7 @@ export default class App extends Component {
     const untilDate = this.props.date - this.state.now;
 
     return (
-      <div>
+      <div className={styles.app}>
         {this.props.children}
         <Answer untilDate={untilDate} />
         <Duration untilDate={untilDate} />

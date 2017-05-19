@@ -1,0 +1,104 @@
+@mixin on-desktop {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+$base-font-family: Arial;
+$answer-font-family: "Amiri", $base-font-family;
+$duration-font-family: "Aref Ruqaa", $base-font-family;
+$answer-color: #fc3a51;
+$duration-color: #3c3251;
+$background-color: #e8d5b9;
+
+// $background-color: linear-gradient(to bottom, #fc6671, #0e2430);
+
+body {
+  direction: rtl;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: $background-color;
+}
+
+.answer {
+  margin: 0;
+
+  font-family: $answer-font-family;
+  font-size: 300px;
+  font-weight: normal;
+
+  color: $answer-color;
+}
+
+.duration {
+  margin-bottom: 50px;
+
+  font-family: $duration-font-family;
+  font-size: 6.8vw;
+  font-weight: normal;
+  color: $duration-color;
+}
+
+.counter {
+  display: inline-block;
+  margin: 0 3vw;
+
+  &:first-child {
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-left: 0;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background: $background-color;
+
+  span {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    font-size: 100px;
+
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: rotating;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(-1deg);
+  }
+}

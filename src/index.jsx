@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import styles from './App.scss';
+import styles from './styles.scss';
 
 // You can change the date easily, formatting as `day/month/year`.
 const date = '1/9/1438';

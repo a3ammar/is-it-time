@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import styles from './styles.scss';
 
 const pluralizationRules = {
   years: {
@@ -134,9 +135,9 @@ export default function Duration({ untilDate }: { untilDate: number }) {
   const seconds = Math.floor(untilDate / 1000);
 
   return (
-    <div>
+    <div className={styles.duration}>
       {dateAsWords(seconds).map(({ period, duration }) => (
-        <span key={period}>{duration}</span>
+        <div key={period} className={styles.counter}>{duration}</div>
       ))}
     </div>
   );
