@@ -31,9 +31,7 @@ function Loading() {
 }
 
 ReactDOM.render(
-  <App>
-    <Loading />
-  </App>,
+  <Loading />,
   document.getElementById('app'),
 );
 
