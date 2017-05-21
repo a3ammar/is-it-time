@@ -18,7 +18,7 @@ function parseInputDate() {
   });
 }
 
-function parseGregorianDate(json: JSON) {
+function parseGregorianDate(json: { year_gr: number, month_gr: number, day_gr: number }) {
   return new Date(json.year_gr, json.month_gr - 1, json.day_gr);
 }
 
