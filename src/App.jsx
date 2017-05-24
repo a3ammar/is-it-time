@@ -1,20 +1,10 @@
 // @flow
 
 import React, { Component } from 'react';
+import Answer from './Answer';
 import Duration from './Duration';
+import { Point } from './sectors';
 import styles from './styles.scss';
-
-function Answer({ untilDate }: { untilDate: number }) {
-  let answer;
-
-  if (untilDate > 0) {
-    answer = 'لا';
-  } else {
-    answer = 'نعم';
-  }
-
-  return <h1 className={styles.answer}>{answer}</h1>;
-}
 
 export default class App extends Component {
   timerID: number;
@@ -25,14 +15,19 @@ export default class App extends Component {
 
   state = {
     now: new Date(),
+    mousePosition: new Point(0, 0),
   }
 
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
   }
 
-  compoentWillUnmount() {
+  componentWillUnmount() {
     clearInterval(this.timerID);
+  }
+
+  handleMouseMovement = (event: SyntheticMouseEvent) => {
+    this.setState({ mousePosition: new Point(event.screenX, event.screenY) });
   }
 
   tick() {
@@ -43,8 +38,8 @@ export default class App extends Component {
     const untilDate = this.props.date - this.state.now;
 
     return (
-      <div className={styles.app}>
-        <Answer untilDate={untilDate} />
+      <div className={styles.app} onMouseMove={this.handleMouseMovement}>
+        <Answer untilDate={untilDate} mousePosition={this.state.mousePosition} />
         <Duration untilDate={untilDate} />
       </div>
     );
