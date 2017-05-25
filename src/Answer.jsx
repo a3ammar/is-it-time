@@ -37,7 +37,7 @@ export default class Answer extends Component {
   element: Element;
 
   props: {
-    untilDate: number,
+    isDone: boolean;
     mousePosition: Point,
   }
 
@@ -67,7 +67,7 @@ export default class Answer extends Component {
   }
 
   get answer(): string {
-    if (this.props.untilDate <= 0) {
+    if (this.props.isDone) {
       return 'حان';
     }
 

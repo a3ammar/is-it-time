@@ -34,13 +34,19 @@ export default class App extends Component {
     this.setState({ now: new Date() });
   }
 
-  render() {
-    const untilDate = this.props.date - this.state.now;
+  get untilDate(): number {
+    return this.props.date - this.state.now;
+  }
 
+  get isDone(): boolean {
+    return this.untilDate <= 0;
+  }
+
+  render() {
     return (
       <div className={styles.app} onMouseMove={this.handleMouseMovement}>
-        <Answer untilDate={untilDate} mousePosition={this.state.mousePosition} />
-        <Duration untilDate={untilDate} />
+        <Answer isDone={this.isDone} mousePosition={this.state.mousePosition} />
+        <Duration untilDate={this.untilDate} />
       </div>
     );
   }
