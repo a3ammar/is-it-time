@@ -124,11 +124,15 @@ function dateAsWords(dateAsSeconds: number) {
     return [{ period: 'done', duration: '🎉' }];
   }
 
-  return dateToDurations(dateAsSeconds).map((period) => {
+  return dateToDurations(dateAsSeconds).reduce((plurals, period) => {
     const plural = pluralize(period.name, period.count);
 
-    return { period: period.name, duration: plural };
-  });
+    if (plural) {
+      plurals.push({ period: period.name, duration: plural });
+    }
+
+    return plurals;
+  }, []);
 }
 
 export default function Duration({ untilDate }: { untilDate: number }) {
