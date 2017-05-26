@@ -27,6 +27,7 @@ export default class Answer extends Component {
   props: {
     isDone: boolean;
     mousePosition: Point,
+    deviceOrientation: Point,
   }
 
   state = {
@@ -34,8 +35,12 @@ export default class Answer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.mousePosition !== this.props.mousePosition) {
+    const { mousePosition, deviceOrientation } = nextProps;
+
+    if (mousePosition !== this.props.mousePosition) {
       this.setState({ relativePosition: this.relativeMousePosition });
+    } else if (deviceOrientation !== this.props.deviceOrientation) {
+      this.setState({ relativePosition: deviceOrientation });
     }
   }
 

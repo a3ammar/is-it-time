@@ -16,20 +16,30 @@ export default class App extends Component {
   state = {
     now: new Date(),
     mousePosition: new Point(0, 0),
+    deviceOrientation: new Point(0, 0),
   }
 
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000);
+    window.addEventListener('deviceorientation', this.handleOrientation);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
+    window.removeEventListener('deviceorientation', this.handleOrientation);
   }
 
   handleMouseMovement = (event: SyntheticMouseEvent) => {
     const { screenX, screenY } = event;
 
     this.setState({ mousePosition: new Point(screenX, screenY) });
+  }
+
+  handleOrientation = (event: any) => {
+    const { beta, gamma } = event;
+
+    // Flipping `beta` & `gamma` signs so shadow will follow the orientation.
+    this.setState({ deviceOrientation: new Point(gamma * -1, beta * -1) });
   }
 
   tick() {
@@ -57,7 +67,11 @@ export default class App extends Component {
         className={this.className}
         onMouseMove={this.handleMouseMovement}
       >
-        <Answer isDone={this.isDone} mousePosition={this.state.mousePosition} />
+        <Answer
+          isDone={this.isDone}
+          mousePosition={this.state.mousePosition}
+          deviceOrientation={this.state.deviceOrientation}
+        />
         <Duration untilDate={this.untilDate} />
       </div>
     );
