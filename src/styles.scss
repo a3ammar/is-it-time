@@ -7,11 +7,12 @@
 $base-font-family: Arial;
 $answer-font-family: "Amiri", $base-font-family;
 $duration-font-family: "Aref Ruqaa", $base-font-family;
-$answer-color: #fc3a51;
-$duration-color: #3c3251;
-$background-color: #e8d5b9;
 
-// $background-color: linear-gradient(to bottom, #fc6671, #0e2430);
+$answer-counting-color: #ff847c;
+$answer-done-color: #f2b4a8;
+$duration-color: #fecea8;
+$background-counting-color: #2a363b;
+$background-done-color: #f8f4d7;
 
 body {
   direction: rtl;
@@ -28,8 +29,14 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
+}
 
-  background: $background-color;
+.appCounting {
+  background: $background-counting-color;
+}
+
+.appDone {
+  background: $background-done-color;
 }
 
 .answer {
@@ -38,8 +45,14 @@ body {
   font-family: $answer-font-family;
   font-size: 300px;
   font-weight: normal;
+}
 
-  color: $answer-color;
+.answerCounting {
+  color: $answer-counting-color;
+}
+
+.answerDone {
+  color: $answer-done-color;
 }
 
 .duration {
@@ -74,7 +87,7 @@ body {
   bottom: 0;
   right: 0;
 
-  background: $background-color;
+  background: $background-counting-color;
 
   span {
     display: block;

@@ -42,9 +42,16 @@ export default class App extends Component {
     return this.untilDate <= 0;
   }
 
+  get className(): string {
+    return [
+      styles.app,
+      this.isDone ? styles.appDone : styles.appCounting,
+    ].join(' ');
+  }
+
   render() {
     return (
-      <div className={styles.app} onMouseMove={this.handleMouseMovement}>
+      <div className={this.className} onMouseMove={this.handleMouseMovement}>
         <Answer isDone={this.isDone} mousePosition={this.state.mousePosition} />
         <Duration untilDate={this.untilDate} />
       </div>
