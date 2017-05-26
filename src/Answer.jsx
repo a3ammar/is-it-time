@@ -12,7 +12,7 @@ function shadowDirection(point: Point) {
   return pointSector ? pointSector.shadowDirection : defaultDirection;
 }
 
-function shadowStyle(point: Point, colors: Array) {
+function shadowStyle(point: Point, colors: Array<string>) {
   const { x, y } = shadowDirection(point);
   const lastColor = 'rgba(25, 6, 8, 0.8)';
 
@@ -54,7 +54,7 @@ export default class Answer extends Component {
     ].join(' ');
   }
 
-  get shadowColors(): Array {
+  get shadowColors(): Array<string> {
     const counting = [
       '#c53f51',
       '#be3d4e',
@@ -84,7 +84,7 @@ export default class Answer extends Component {
     return this.props.isDone ? done : counting;
   }
 
-  get style(): Array {
+  get style(): Object {
     return {
       textShadow: shadowStyle(this.relativeMousePosition, this.shadowColors),
       transition: '0.5s ease-in-out',
