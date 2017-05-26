@@ -29,11 +29,17 @@ export default class Answer extends Component {
     mousePosition: Point,
   }
 
-  get relativeMousePosition(): Point {
-    if (this.element === undefined) {
-      return this.props.mousePosition;
-    }
+  state = {
+    relativePosition: new Point(0, 0),
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.mousePosition !== this.props.mousePosition) {
+      this.setState({ relativePosition: this.relativeMousePosition });
+    }
+  }
+
+  get relativeMousePosition(): Point {
     const bounds = this.element.getBoundingClientRect();
     const origin = {
       x: (bounds.left + bounds.right) / 2,
@@ -86,7 +92,7 @@ export default class Answer extends Component {
 
   get style(): Object {
     return {
-      textShadow: shadowStyle(this.relativeMousePosition, this.shadowColors),
+      textShadow: shadowStyle(this.state.relativePosition, this.shadowColors),
       transition: '0.5s ease-in-out',
     };
   }
