@@ -27,7 +27,9 @@ export default class App extends Component {
   }
 
   handleMouseMovement = (event: SyntheticMouseEvent) => {
-    this.setState({ mousePosition: new Point(event.screenX, event.screenY) });
+    const { screenX, screenY } = event;
+
+    this.setState({ mousePosition: new Point(screenX, screenY) });
   }
 
   tick() {
@@ -51,7 +53,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className={this.className} onMouseMove={this.handleMouseMovement}>
+      <div
+        className={this.className}
+        onMouseMove={this.handleMouseMovement}
+      >
         <Answer isDone={this.isDone} mousePosition={this.state.mousePosition} />
         <Duration untilDate={this.untilDate} />
       </div>
