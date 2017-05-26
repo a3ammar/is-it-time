@@ -12,25 +12,13 @@ function shadowDirection(point: Point) {
   return pointSector ? pointSector.shadowDirection : defaultDirection;
 }
 
-function shadowStyle(direction: Point) {
-  const { x, y } = direction;
+function shadowStyle(point: Point, colors: Array) {
+  const { x, y } = shadowDirection(point);
   const lastColor = 'rgba(25, 6, 8, 0.8)';
-  const colors = [
-    '#d63145',
-    '#cf3042',
-    '#b02939',
-    '#a92736',
-    '#8b202d',
-    '#831e2a',
-    '#651720',
-    '#5d151e',
-    '#3f0f14',
-    '#370d12',
-  ];
 
   return colors.map((color, index) => (
-    `${(index + 1) * x}px ${(index + 1) * y}px 0px ${color}`
-  )).concat(`${15 * x}px ${15 * y}px 25px ${lastColor}`);
+    `${index * x * -2}px ${index * y * -2}px 0px ${color}`
+  )).concat(`${x * -40}px ${y * -40}px 25px ${lastColor}`);
 }
 
 export default class Answer extends Component {
@@ -59,9 +47,46 @@ export default class Answer extends Component {
     );
   }
 
+  get className(): string {
+    return [
+      styles.answer,
+      this.props.isDone ? styles.answerDone : styles.answerCounting,
+    ].join(' ');
+  }
+
+  get shadowColors(): Array {
+    const counting = [
+      '#c53f51',
+      '#be3d4e',
+      '#a23443',
+      '#9b3240',
+      '#802934',
+      '#792631',
+      '#5d1e26',
+      '#561b23',
+      '#3a1318',
+      '#331015',
+    ];
+
+    const done = [
+      '#c67465',
+      '#bf7062',
+      '#a36053',
+      '#9c5c50',
+      '#804b41',
+      '#79473e',
+      '#5d3730',
+      '#56332c',
+      '#3a221e',
+      '#331e1a',
+    ];
+
+    return this.props.isDone ? done : counting;
+  }
+
   get style(): Array {
     return {
-      textShadow: shadowStyle(shadowDirection(this.relativeMousePosition)),
+      textShadow: shadowStyle(this.relativeMousePosition, this.shadowColors),
       transition: '0.5s ease-in-out',
     };
   }
@@ -77,7 +102,7 @@ export default class Answer extends Component {
   render() {
     return (
       <h1
-        className={styles.answer}
+        className={this.className}
         style={this.style}
         ref={(element) => { this.element = element; }}
       >
