@@ -5,20 +5,31 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import styles from './styles.scss';
 
-// You can change the date easily, formatting as `day/month/year`.
-const date = '1/9/1438';
 
-function parseInputDate() {
-  const parsedDate = date.split('/');
+function dateToJSON(date: string) {
+  const [day, month, year] = date.split('-');
 
-  return JSON.stringify({
-    day: parsedDate[0],
-    month: parsedDate[1],
-    year: parsedDate[2],
-  });
+  return JSON.stringify({ day, month, year });
 }
 
-function parseGregorianDate(json: { year_gr: number, month_gr: number, day_gr: number }) {
+function parseQueryString() {
+  const defaultDate = '1-10-1438';
+  const [_, query] = window.location.href.split('?');
+
+  if (!query) {
+    return { date: defaultDate };
+  }
+
+  return query.split('&').reduce((params, param) => {
+    const [key, value] = param.split('=');
+
+    params[key] = value;
+
+    return params;
+  }, {});
+}
+
+function extractGregorian(json: { year_gr: number, month_gr: number, day_gr: number }) {
   return new Date(json.year_gr, json.month_gr - 1, json.day_gr);
 }
 
@@ -38,14 +49,14 @@ ReactDOM.render(
 fetch('https://util.services/api/convert-hijri-to-greg/', {
   method: 'POST',
   headers: new Headers({ 'Content-Type': 'application/json' }),
-  body: parseInputDate(),
+  body: dateToJSON(parseQueryString().date),
 })
   .then(response => (
     response.json()
   ))
   .then((json) => {
     ReactDOM.render(
-      <App date={parseGregorianDate(json)} />,
+      <App date={extractGregorian(json)} />,
       document.getElementById('app'),
     );
   });
