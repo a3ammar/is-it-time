@@ -92,8 +92,8 @@ function dateToDurations(dateAsSeconds: number) {
   const hours   = Math.floor((dateAsSeconds / 60 / 60) % 24);
   const days    = Math.floor((dateAsSeconds / 60 / 60 / 24) % 7);
   const weeks   = Math.floor((dateAsSeconds / 60 / 60 / 24 / 7) % 4);
-  const months  = Math.floor((dateAsSeconds / 60 / 60 / 24 / 30) % 12);
-  const years   = Math.floor((dateAsSeconds / 60 / 60 / 24 / 30 / 12));
+  const months  = Math.floor((dateAsSeconds / 60 / 60 / 24 / 7 / 4) % 12);
+  const years   = Math.floor((dateAsSeconds / 60 / 60 / 24 / 7 / 4 / 12));
 
   return [
     { name: 'years',   count: years },
