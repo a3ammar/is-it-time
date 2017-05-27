@@ -11,6 +11,9 @@
   },
   "rules": {
     "no-console": 0,
+    "no-unused-vars": [2, {
+      "varsIgnorePattern": "^_$"
+    }],
     "no-mixed-operators": [2, {
       "allowSamePrecedence": true
     }],
