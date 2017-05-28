@@ -4,16 +4,8 @@ import React, { Component } from 'react';
 import Sector, { Point } from './sectors';
 import styles from './styles.scss';
 
-function shadowDirection(point: Point) {
-  const defaultDirection = new Point(0, 0);
-  const sectors = Sector.generateSectors(8, 22.5);
-  const pointSector = sectors.find(sector => sector.contains(point));
-
-  return pointSector ? pointSector.shadowDirection : defaultDirection;
-}
-
 function shadowStyle(point: Point, colors: Array<string>) {
-  const { x, y } = shadowDirection(point);
+  const { x, y } = Sector.findDirection(point);
   const lastColor = 'rgba(25, 6, 8, 0.8)';
 
   return colors.map((color, index) => (

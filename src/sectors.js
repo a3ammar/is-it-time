@@ -42,7 +42,15 @@ export default class Sector {
     });
   }
 
-  get shadowDirection(): Point {
+  static findDirection(point: Point) {
+    const defaultDirection = new Point(0, 0);
+    const sectors = this.generateSectors(8, 22.5);
+    const pointSector = sectors.find(sector => sector.contains(point));
+
+    return pointSector ? pointSector.direction : defaultDirection;
+  }
+
+  get direction(): Point {
     const average = (this.start + this.end) / 2;
 
     if (this.end < this.start) {
