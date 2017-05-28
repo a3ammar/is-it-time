@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Answer from './Answer';
 import Duration from './Duration';
+import Background from './Background';
 import { Point } from './sectors';
 import styles from './styles.scss';
 
@@ -73,6 +74,7 @@ export default class App extends Component {
           deviceOrientation={this.state.deviceOrientation}
         />
         <Duration untilDate={this.untilDate} />
+        <Background />
       </div>
     );
   }

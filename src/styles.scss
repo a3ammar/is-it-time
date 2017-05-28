@@ -123,3 +123,18 @@ body {
     transform: rotate(-1deg);
   }
 }
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+:global(#star) {
+  fill: transparent;
+  stroke: $duration-color;
+  stroke-width: 1;
+}

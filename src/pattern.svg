@@ -1,0 +1,18 @@
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Star</title>
+  <defs>
+    <pattern
+      id="stars"
+      width="150"
+      height="150"
+      patternTransform="rotate(45)"
+      patternUnits="userSpaceOnUse"
+    >
+      <g transform="scale(0.8)">
+        <polygon id="star" points="48 75 18.6107374 90.4508497 24.2235871 57.7254249 0.447174185 34.5491503 33.3053687 29.7745751 48 0 62.6946313 29.7745751 95.5528258 34.5491503 71.7764129 57.7254249 77.3892626 90.4508497">
+        </polygon>
+      </g>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#stars)" />
+</svg>
