@@ -25,37 +25,8 @@ export default class Answer extends Component {
   element: Element;
 
   props: {
-    isDone: boolean;
-    mousePosition: Point,
-    deviceOrientation: Point,
-  }
-
-  state = {
-    relativePosition: new Point(0, 0),
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { mousePosition, deviceOrientation } = nextProps;
-
-    if (mousePosition !== this.props.mousePosition) {
-      this.setState({ relativePosition: this.relativeMousePosition });
-    } else if (deviceOrientation !== this.props.deviceOrientation) {
-      this.setState({ relativePosition: deviceOrientation });
-    }
-  }
-
-  get relativeMousePosition(): Point {
-    const bounds = this.element.getBoundingClientRect();
-    const origin = {
-      x: (bounds.left + bounds.right) / 2,
-      y: (bounds.top + bounds.bottom) / 2,
-    };
-
-    return new Point(
-      this.props.mousePosition.x,
-      this.props.mousePosition.y,
-      origin,
-    );
+    isDone: boolean,
+    movementPosition: Point,
   }
 
   get className(): string {
@@ -97,7 +68,7 @@ export default class Answer extends Component {
 
   get style(): Object {
     return {
-      textShadow: shadowStyle(this.state.relativePosition, this.shadowColors),
+      textShadow: shadowStyle(this.props.movementPosition, this.shadowColors),
       transition: '0.5s ease-in-out',
     };
   }
@@ -112,11 +83,7 @@ export default class Answer extends Component {
 
   render() {
     return (
-      <h1
-        className={this.className}
-        style={this.style}
-        ref={(element) => { this.element = element; }}
-      >
+      <h1 className={this.className} style={this.style}>
         {this.answer}
       </h1>
     );

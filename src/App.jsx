@@ -7,6 +7,11 @@ import Background from './Background';
 import { Point } from './sectors';
 import styles from './styles.scss';
 
+const origin = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
+};
+
 export default class App extends Component {
   timerID: number;
 
@@ -16,8 +21,7 @@ export default class App extends Component {
 
   state = {
     now: new Date(),
-    mousePosition: new Point(0, 0),
-    deviceOrientation: new Point(0, 0),
+    movementPosition: new Point(0, 0),
   }
 
   componentDidMount() {
@@ -33,14 +37,14 @@ export default class App extends Component {
   handleMouseMovement = (event: SyntheticMouseEvent) => {
     const { screenX, screenY } = event;
 
-    this.setState({ mousePosition: new Point(screenX, screenY) });
+    this.setState({ movementPosition: new Point(screenX, screenY, origin) });
   }
 
   handleOrientation = (event: any) => {
     const { beta, gamma } = event;
 
     // Flipping `beta` & `gamma` signs so shadow will follow the orientation.
-    this.setState({ deviceOrientation: new Point(gamma * -1, beta * -1) });
+    this.setState({ movementPosition: new Point(gamma * -1, beta * -1) });
   }
 
   tick() {
@@ -64,15 +68,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div
-        className={this.className}
-        onMouseMove={this.handleMouseMovement}
-      >
-        <Answer
-          isDone={this.isDone}
-          mousePosition={this.state.mousePosition}
-          deviceOrientation={this.state.deviceOrientation}
-        />
+      <div className={this.className} onMouseMove={this.handleMouseMovement}>
+        <Answer isDone={this.isDone} movementPosition={this.state.movementPosition} />
         <Duration untilDate={this.untilDate} />
         <Background />
       </div>
