@@ -59,14 +59,22 @@ body {
   margin-bottom: 50px;
 
   font-family: $duration-font-family;
-  font-size: 6.8vw;
   font-weight: normal;
   color: $duration-color;
+
+  font-size: 6.8vw;
+  @include on-desktop {
+    font-size: 6vw;
+  }
 }
 
 .counter {
   display: inline-block;
-  margin: 0 3vw;
+
+  margin: 0 1.8vw;
+  @include on-desktop {
+    margin: 0 2vw;
+  }
 
   &:first-child {
     margin-right: 0;
