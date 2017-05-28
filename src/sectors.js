@@ -42,19 +42,6 @@ export default class Sector {
     });
   }
 
-  static debug() {
-    const sectors = this.generateSectors(8, 22.5);
-
-    return sectors.map(sector => ({
-      startR:  sector.start,
-      endR:    sector.end,
-      startD:  sector.start * (180 / Math.PI),
-      endD:    sector.end * (180 / Math.PI),
-      shadowX: sector.shadowDirection.x,
-      shadowY: sector.shadowDirection.y,
-    }));
-  }
-
   get shadowDirection(): Point {
     const average = (this.start + this.end) / 2;
 
