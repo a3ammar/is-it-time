@@ -43,8 +43,11 @@ export default class App extends Component {
   handleOrientation = (event: any) => {
     const { beta, gamma } = event;
 
+    // Phones are held with an orientation that faces the user.
+    const betaAdjusted = beta - 50;
+
     // Flipping `beta` & `gamma` signs so shadow will follow the orientation.
-    this.setState({ movementPosition: new Point(gamma * -1, beta * -1) });
+    this.setState({ movementPosition: new Point(gamma * -1, betaAdjusted * -1) });
   }
 
   tick() {
