@@ -34,6 +34,10 @@ export default {
           fallback: 'style-loader',
         }),
       },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader',
+      },
     ],
   },
 
