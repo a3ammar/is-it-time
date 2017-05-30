@@ -30,16 +30,16 @@ export default class Answer extends Component {
 
   get shadowColors(): Array<string> {
     const counting = [
-      '#c53f51',
-      '#be3d4e',
-      '#a23443',
-      '#9b3240',
-      '#802934',
-      '#792631',
-      '#5d1e26',
-      '#561b23',
-      '#3a1318',
-      '#331015',
+      '#733333',
+      '#703131',
+      '#622b2b',
+      '#5e2a2a',
+      '#512424',
+      '#4d2222',
+      '#3f1c1c',
+      '#3c1b1b',
+      '#2e1414',
+      '#2b1313',
     ];
 
     const done = [
