@@ -17,10 +17,11 @@
     "no-mixed-operators": [2, {
       "allowSamePrecedence": true
     }],
-    "no-multi-spaces": [2, {
+    "no-multi-spaces": [1, {
       "exceptions": {
         "VariableDeclarator": true,
-        "ObjectExpression": true
+        "ObjectExpression": true,
+        "AssignmentExpression": true
       }
     }],
     "key-spacing": [2, {
