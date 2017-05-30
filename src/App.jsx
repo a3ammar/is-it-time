@@ -71,7 +71,7 @@ export default class App extends Component {
       <div className={this.className} onMouseMove={this.handleMouseMovement}>
         <Answer isDone={this.isDone} movementPosition={this.state.movementPosition} />
         <Duration untilDate={this.untilDate} />
-        <Background />
+        <Background movementPosition={this.state.movementPosition} />
       </div>
     );
   }

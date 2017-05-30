@@ -11,8 +11,8 @@ $duration-font-family: "Aref Ruqaa", $base-font-family;
 $answer-counting-color: #ff847c;
 $answer-done-color: #f2b4a8;
 $duration-color: #fecea8;
-$background-counting-color: #2a363b;
-$background-done-color: #f8f4d7;
+$background-counting-color: #474747;
+$background-done-color: #262626;
 
 body {
   direction: rtl;
@@ -126,11 +126,14 @@ body {
 
 .background {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
   z-index: -1;
+
+  background-image: url(./pattern.svg);
+  background-repeat: round;
 }
 
 :global(#star) {
