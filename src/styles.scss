@@ -6,12 +6,13 @@
 
 $base-font-family: Arial;
 $answer-font-family: "Amiri", $base-font-family;
-$duration-font-family: "Aref Ruqaa", $base-font-family;
+$countdown-font-family: "El Messiri", $base-font-family;
 
 $answer-counting-color: #de6262;
 $answer-done-color: #f2b4a8;
-$duration-color: #fecea8;
 $background-counting-color: #474747;
+$countdown-count-color: #f2e3c6;
+$countdown-period-color: #c6baa2;
 $background-done-color: #262626;
 
 body {
@@ -55,26 +56,17 @@ body {
   color: $answer-done-color;
 }
 
-.duration {
-  margin-bottom: 50px;
+.countdown {
+  margin-bottom: 20px;
+  text-align: center;
 
-  font-family: $duration-font-family;
-  font-weight: normal;
-  color: $duration-color;
-
-  font-size: 6.8vw;
-  @include on-desktop {
-    font-size: 6vw;
-  }
+  font-family: $countdown-font-family;
+  font-size: 50px;
 }
 
 .counter {
   display: inline-block;
-
-  margin: 0 1.8vw;
-  @include on-desktop {
-    margin: 0 2vw;
-  }
+  margin: 0 10px;
 
   &:first-child {
     margin-right: 0;
@@ -83,6 +75,16 @@ body {
   &:last-child {
     margin-left: 0;
   }
+}
+
+.counterCount {
+  font-size: 40px;
+  color: $countdown-count-color;
+}
+
+.counterPeriod {
+  font-size: 20px;
+  color: $countdown-period-color;
 }
 
 .background {

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import Answer from './Answer';
-import Duration from './Duration';
+import Countdown from './Countdown';
 import Background from './Background';
 import { Point } from './sectors';
 import styles from './styles.scss';
@@ -70,7 +70,7 @@ export default class App extends Component {
     return (
       <div className={this.className} onMouseMove={this.handleMouseMovement}>
         <Answer isDone={this.isDone} movementPosition={this.state.movementPosition} />
-        <Duration untilDate={this.untilDate} />
+        <Countdown untilDate={this.untilDate} />
         <Background movementPosition={this.state.movementPosition} />
       </div>
     );
