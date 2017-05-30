@@ -10,7 +10,7 @@ function shadowStyle(point: Point, colors: Array<string>) {
 
   return colors.map((color, index) => (
     `${index * x * -2}px ${index * y * -2}px 0px ${color}`
-  )).concat(`${x * -40}px ${y * -40}px 25px ${lastColor}`);
+  )).concat(`${x * -30}px ${y * -30}px 25px ${lastColor}`);
 }
 
 export default class Answer extends Component {

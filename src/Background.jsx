@@ -7,7 +7,7 @@ import styles from './styles.scss';
 function moveDirection(point: Point) {
   const { x, y } = Sector.findDirection(point);
 
-  return `${x * -30}px ${y * -30}px`;
+  return `${x * -20}px ${y * -20}px`;
 }
 
 export default class Background extends Component {

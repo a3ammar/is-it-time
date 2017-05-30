@@ -85,6 +85,17 @@ body {
   }
 }
 
+.background {
+  position: fixed;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  z-index: -1;
+
+  background-image: url(./pattern.svg);
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -122,22 +133,4 @@ body {
   to {
     transform: rotate(-1deg);
   }
-}
-
-.background {
-  position: fixed;
-  top: -25%;
-  left: -25%;
-  width: 150%;
-  height: 150%;
-  z-index: -1;
-
-  background-image: url(./pattern.svg);
-  background-repeat: round;
-}
-
-:global(#star) {
-  fill: transparent;
-  stroke: $duration-color;
-  stroke-width: 1;
 }
