@@ -12,8 +12,8 @@ $answer-counting-color: #de6262;
 $answer-done-color: #f2b4a8;
 $countdown-count-color: #f2e3c6;
 $countdown-period-color: #c6baa2;
-$background-counting-color: #343634;
-$background-done-color: #262626;
+$background-counting-color: #000;
+$background-done-color: #ffeaad;
 
 body {
   direction: rtl;
@@ -95,7 +95,9 @@ body {
   height: 150%;
   z-index: -1;
 
-  background-image: url(./pattern.svg);
+  // https://uigradients.com/#Aubergine
+  background-image: linear-gradient(rgba(203, 180, 212, 0.5), rgba(32, 0, 44, 0.5)),
+                    url(./pattern.svg);
 }
 
 .loading {
