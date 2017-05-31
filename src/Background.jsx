@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import Sector, { Point } from './sectors';
 import styles from './styles.scss';
 
@@ -12,7 +13,16 @@ function moveDirection(point: Point) {
 
 export default class Background extends Component {
   props: {
+    isDone: boolean,
     movementPosition: Point,
+  }
+
+  get className(): string {
+    return classNames({
+      [styles.background]: true,
+      [styles.backgroundDone]: this.props.isDone,
+      [styles.backgroundCounting]: !this.props.isDone,
+    });
   }
 
   get style(): Object {
@@ -24,10 +34,7 @@ export default class Background extends Component {
 
   render() {
     return (
-      <div
-        className={styles.background}
-        style={this.style}
-      />
+      <div className={this.className} style={this.style} />
     );
   }
 }

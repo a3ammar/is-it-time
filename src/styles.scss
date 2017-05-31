@@ -13,7 +13,7 @@ $answer-done-color: #f2b4a8;
 $countdown-count-color: #f2e3c6;
 $countdown-period-color: #c6baa2;
 $background-counting-color: #000;
-$background-done-color: #ffeaad;
+$background-done-color: #fff8d4;
 
 body {
   direction: rtl;
@@ -94,10 +94,18 @@ body {
   width: 150%;
   height: 150%;
   z-index: -1;
+}
 
+.backgroundDone {
+  // https://uigradients.com/#Mini
+  background-image: linear-gradient(rgba(48, 232, 191, 0.4), rgba(255, 130, 53, 0.4)),
+                    url(./patternDone.svg);
+}
+
+.backgroundCounting {
   // https://uigradients.com/#Aubergine
   background-image: linear-gradient(rgba(203, 180, 212, 0.5), rgba(32, 0, 44, 0.5)),
-                    url(./pattern.svg);
+                    url(./patternCounting.svg);
 }
 
 .loading {
