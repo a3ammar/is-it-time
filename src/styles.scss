@@ -20,11 +20,6 @@ body {
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -41,6 +36,10 @@ body {
 }
 
 .answer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
 
   font-family: $answer-font-family;
@@ -57,6 +56,10 @@ body {
 }
 
 .countdown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
   margin-bottom: 20px;
   text-align: center;
 
