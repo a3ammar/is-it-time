@@ -45,16 +45,16 @@ export default class Answer extends Component {
     ];
 
     const done = [
-      '#c67465',
-      '#bf7062',
-      '#a36053',
-      '#9c5c50',
-      '#804b41',
-      '#79473e',
-      '#5d3730',
-      '#56332c',
-      '#3a221e',
-      '#331e1a',
+      '#b048b9',
+      '#cd4c6f',
+      '#f2531c',
+      '#dd8b41',
+      '#c7cc6c',
+      '#92cc93',
+      '#57cbc0',
+      '#818dbd',
+      '#b048b9',
+      '#0a5c64',
     ];
 
     return this.props.isDone ? done : counting;
