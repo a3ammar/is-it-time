@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import Answer from './Answer';
 import Countdown from './Countdown';
 import Background from './Background';
@@ -63,10 +64,11 @@ export default class App extends Component {
   }
 
   get className(): string {
-    return [
-      styles.app,
-      this.isDone ? styles.appDone : styles.appCounting,
-    ].join(' ');
+    return classNames({
+      [styles.app]: true,
+      [styles.appDone]: this.isDone,
+      [styles.appCounting]: !this.isDone,
+    });
   }
 
   render() {

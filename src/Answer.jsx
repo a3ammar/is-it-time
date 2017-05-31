@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import Sector, { Point } from './sectors';
 import styles from './styles.scss';
 
@@ -22,10 +23,11 @@ export default class Answer extends Component {
   }
 
   get className(): string {
-    return [
-      styles.answer,
-      this.props.isDone ? styles.answerDone : styles.answerCounting,
-    ].join(' ');
+    return classNames({
+      [styles.answer]: true,
+      [styles.answerDone]: this.props.isDone,
+      [styles.answerCounting]: !this.props.isDone,
+    });
   }
 
   get shadowColors(): Array<string> {
