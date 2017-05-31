@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import Answer from './Answer';
 import Countdown from './Countdown';
 import Background from './Background';
@@ -63,17 +62,9 @@ export default class App extends Component {
     return this.untilDate <= 0;
   }
 
-  get className(): string {
-    return classNames({
-      [styles.app]: true,
-      [styles.appDone]: this.isDone,
-      [styles.appCounting]: !this.isDone,
-    });
-  }
-
   render() {
     return (
-      <div className={this.className} onMouseMove={this.handleMouseMovement}>
+      <div className={styles.app} onMouseMove={this.handleMouseMovement}>
         <Answer isDone={this.isDone} movementPosition={this.state.movementPosition} />
         <Countdown untilDate={this.untilDate} />
         <Background isDone={this.isDone} movementPosition={this.state.movementPosition} />

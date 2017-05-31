@@ -12,8 +12,7 @@ $answer-counting-color: #de6262;
 $answer-done-color: #eee;
 $countdown-count-color: #f2e3c6;
 $countdown-period-color: #c6baa2;
-$background-counting-color: #000;
-$background-done-color: #fff8d4;
+$loading-background-color: #46384b;
 
 body {
   direction: rtl;
@@ -25,14 +24,6 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-}
-
-.appCounting {
-  background: $background-counting-color;
-}
-
-.appDone {
-  background: $background-done-color;
 }
 
 .answer {
@@ -121,7 +112,7 @@ body {
   bottom: 0;
   right: 0;
 
-  background: $background-done-color;
+  background: $loading-background-color;
 
   span {
     display: block;

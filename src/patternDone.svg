@@ -4,6 +4,10 @@
   </title>
 
   <style>
+   #background {
+     fill: #fff8d4;
+   }
+
    #inner,
    #alternateOuter {
      fill: #2e4347;
@@ -30,6 +34,8 @@
   </style>
 
   <g fill="none" fill-rule="evenodd">
+    <path id="background" d="M0 0h200v200H0z" />
+
     <g id="inner">
       <path d="M85 93h15v15H85zM105 93h15v15h-15zM125 93h15v15h-15zM105 73h15v15h-15zM105 113h15v15h-15zM102.536 87l3.535 3.536-3.534 3.536L99 90.536zM122.536 87l3.535 3.536-3.534 3.536L119 90.536zM102.536 107l3.535 3.536-3.534 3.536L99 110.536zM122.536 107l3.535 3.536-3.534 3.536-3.536-3.536z"/>
     </g>
