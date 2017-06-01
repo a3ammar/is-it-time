@@ -12,6 +12,17 @@ const origin = {
   y: window.innerHeight / 2,
 };
 
+function Repository() {
+  return (
+    <a
+      className={styles.repository}
+      href="https://github.com"
+      title="Source Code on GitHub"
+      aria-label="Source Code on GitHub"
+    />
+  );
+}
+
 export default class App extends Component {
   timerID: number;
 
@@ -65,6 +76,7 @@ export default class App extends Component {
   render() {
     return (
       <div className={styles.app} onMouseMove={this.handleMouseMovement}>
+        <Repository />
         <Answer isDone={this.isDone} movementPosition={this.state.movementPosition} />
         <Countdown untilDate={this.untilDate} />
         <Background isDone={this.isDone} movementPosition={this.state.movementPosition} />
