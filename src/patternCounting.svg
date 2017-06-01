@@ -8,14 +8,10 @@
      fill: #000;
    }
 
-   #inner,
-   #innerMiddle,
    #outerMiddle,
    #outer,
    #alternateInner,
-   #alternateInnerMiddle,
-   #alternateOuterMiddle,
-   #alternateOuter {
+   #alternateInnerMiddle {
      fill: #444;
    }
 
