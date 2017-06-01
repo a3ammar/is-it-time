@@ -16,7 +16,7 @@ function Repository() {
   return (
     <a
       className={styles.repository}
-      href="https://github.com"
+      href="https://github.com/a3ammar/is-it-time"
       title="Source Code on GitHub"
       aria-label="Source Code on GitHub"
     />
