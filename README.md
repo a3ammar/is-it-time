@@ -19,8 +19,6 @@ $ yarn install
 $ yarn start
 ```
 
-I use [yarn](https://yarnpkg.com/en/), figure it out if you want to use other package managers.
-
 ## Thanks
 
 The countdown converts Hijri dates using the awesome https://util.services/ by [Musharraf Alsakran](https://twitter.com/MusharrafSakran).
